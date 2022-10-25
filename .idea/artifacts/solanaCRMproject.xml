@@ -1,18 +1,8 @@
 <component name="ArtifactManager">
-  <artifact type="javafx" name="solanaCRMproject">
+  <artifact type="jar" name="solanaCRMproject">
     <output-path>$PROJECT_DIR$/out/artifacts/solanaCRMproject</output-path>
-    <properties id="javafx-properties">
-      <options>
-        <option name="appClass" value="com.solanacrm.Main" />
-        <option name="description" value="" />
-        <option name="htmlPlaceholderId" value="" />
-        <option name="title" value="" />
-        <option name="vendor" value="" />
-        <option name="version" value="" />
-      </options>
-    </properties>
-    <root id="root">
-      <element id="archive" name="javatpoint.jar">
+    <root id="archive" name="solanaCRMproject.jar">
+      <element id="archive" name="solanaCRMproject.jar">
         <element id="module-output" name="solanaCRMproject" />
       </element>
     </root>
