@@ -82,7 +82,7 @@
                               <Image url="@assets/logo.jpeg" />
                            </image>
                         </ImageView>
-                        <VBox fx:id="webBrowser" layoutX="28.0" layoutY="423.0" prefHeight="366.0" prefWidth="570.0" />
+                        <VBox fx:id="postBox" layoutX="28.0" layoutY="423.0" prefHeight="366.0" prefWidth="570.0" />
                      </children>
                   </AnchorPane>
                </content>

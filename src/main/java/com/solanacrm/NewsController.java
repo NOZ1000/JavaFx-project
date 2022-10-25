@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -24,7 +25,7 @@ public class NewsController {
     public ProgressIndicator fakeLoad;
 
     @FXML
-    private VBox webBrowser;
+    private VBox postBox;
 
 
 
@@ -56,5 +57,14 @@ public class NewsController {
         stage.show();
     }
 
+    public void postList() {
+        Button button = new Button();
+        button.setText("BUttonPost");
+        postBox.getChildren().add(button);
+    }
 
+    @FXML
+    void initialize() {
+        postList();
+    }
 }
