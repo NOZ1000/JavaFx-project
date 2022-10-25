@@ -83,6 +83,7 @@
                            </image>
                         </ImageView>
                         <VBox fx:id="postBox" layoutX="28.0" layoutY="423.0" prefHeight="366.0" prefWidth="570.0" />
+                        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#clickAddPost" text="Add post" />
                      </children>
                   </AnchorPane>
                </content>

@@ -12,8 +12,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Objects;
 
 public class NewsController {
     private Stage stage;
@@ -42,7 +44,7 @@ public class NewsController {
 
     @FXML
     public void clickLogOut(ActionEvent event) throws IOException {
-        root  = FXMLLoader.load(getClass().getResource("SIpage.fxml"));
+        root  = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SIpage.fxml")));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -50,21 +52,73 @@ public class NewsController {
     }
 
     public void clickMyProfile(ActionEvent event) throws IOException {
-        root  = FXMLLoader.load(getClass().getResource("MyProfilepage.fxml"));
+        root  = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MyProfilepage.fxml")));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    public void postList() {
-        Button button = new Button();
-        button.setText("BUttonPost");
-        postBox.getChildren().add(button);
+    @FXML
+    void clickAddPost(ActionEvent event) throws IOException {
+        root  = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AddPostspage.fxml")));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
+//    public void postList() throws SQLException, ClassNotFoundException {
+//        Button button = new Button();
+//        button.setText("BUttonPost");
+//        postBox.getChildren().add(button);
+//
+////        DatabaseHandler dbHandler = new DatabaseHandler();
+////        ResultSet postResult = dbHandler.returnPosts();
+////        int counter = 2;
+////        String response = null;
+////        try {
+////            while (postResult.next()) {
+////                response = postResult.getString(counter);
+////
+//////                System.out.println(postResult.getSQLXML(counter));
+////                counter++;
+////                System.out.println(response);
+////            }
+////        } catch (Exception e) {
+////            System.out.println(e);
+////        }
+//
+//    }
+
     @FXML
-    void initialize() {
-        postList();
+    void initialize() throws SQLException, ClassNotFoundException {
+//        DatabaseHandler dbHandler = new DatabaseHandler();
+//        ResultSet postResult = dbHandler.returnPosts(String.valueOf(5));
+//        while (postResult.next()) {
+//            System.out.println(postResult.getInt("idposts"));
+//            System.out.println(postResult.getString("title"));
+//            System.out.println(postResult.getString("content"));
+//            System.out.println(postResult.getDate("creating_date"));
+//        }
+         //System.out.println(postResult.getString("content"));
+        printPosts();
+    }
+
+    public void printPosts() {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+
+        try {
+            for (int i = 2; i < dbHandler.countOfPosts(); i++) {
+                ResultSet postResult = dbHandler.returnPosts(String.valueOf(i));
+                postResult.next();
+                String buttontext = "Post id: " + String.valueOf(i) + " | Title: " + postResult.getString("title");
+                postBox.getChildren().add(new Button(buttontext));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
