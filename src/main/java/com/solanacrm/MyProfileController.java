@@ -13,11 +13,9 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class MyProfileController extends NewsController {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
     @FXML
     private Label firstName;
 
@@ -34,9 +32,9 @@ public class MyProfileController extends NewsController {
     private PieChart pieChart;
 
     public void clickNews(ActionEvent event) throws IOException {
-        root  = FXMLLoader.load(getClass().getResource("Newspage.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Newspage.fxml")));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
@@ -55,10 +53,10 @@ public class MyProfileController extends NewsController {
     public void drawChart() {
         ObservableList<PieChart.Data> pieChartData =
                 FXCollections.observableArrayList(
-                        new PieChart.Data("JS", 13),
+                        new PieChart.Data("JS", 8),
                         new PieChart.Data("C++", 22),
                         new PieChart.Data("JAVA", 10),
-                        new PieChart.Data("PHP", 25),
+                        new PieChart.Data("PHP", 30),
                         new PieChart.Data("Python", 30));
 
 
