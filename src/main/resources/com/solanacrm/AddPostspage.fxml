@@ -21,7 +21,7 @@
          <left>
             <AnchorPane minHeight="-Infinity" prefHeight="494.0" prefWidth="252.0" style="-fx-background-color: #101010; -fx-background-radius: 13;" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="3.0" layoutY="5.0" prefHeight="54.0" prefWidth="257.0" text="Solana CRM">
+                  <Label layoutX="3.0" layoutY="5.0" prefHeight="54.0" prefWidth="275.0" text="Solana CRM">
                      <font>
                         <Font name="Georgia" size="45.0" />
                      </font>
@@ -45,7 +45,7 @@
                         <Insets left="3.0" />
                      </padding>
                   </Label>
-                  <Separator layoutX="9.0" layoutY="53.0" prefHeight="12.0" prefWidth="242.0" />
+                  <Separator layoutX="9.0" layoutY="53.0" prefHeight="12.0" prefWidth="255.0" />
                   <VBox layoutX="20.0" layoutY="73.0" prefHeight="351.0" prefWidth="231.0">
                      <children>
                         <Button mnemonicParsing="false" onAction="#clickNews" prefHeight="46.0" prefWidth="220.0" text="News">
@@ -70,7 +70,7 @@
                <content>
                   <AnchorPane prefHeight="768.0" prefWidth="630.0">
                      <children>
-                        <ProgressIndicator fx:id="fakeLoad" layoutX="564.0" layoutY="14.0" onMouseClicked="#clickLoading" />
+                        <ProgressIndicator fx:id="fakeLoad" layoutX="549.0" onMouseClicked="#clickLoading" />
                         <TextArea fx:id="postContentAdd" layoutX="64.0" layoutY="216.0" prefHeight="180.0" prefWidth="518.0" promptText="Post Content" />
                         <TextArea fx:id="postTitleAdd" layoutX="64.0" layoutY="165.0" prefHeight="29.0" prefWidth="181.0" promptText="Post Title" />
                         <Label layoutX="228.0" layoutY="67.0" text="NEW POST">

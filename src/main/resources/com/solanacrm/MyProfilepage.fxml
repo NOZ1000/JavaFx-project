@@ -20,14 +20,13 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.solanacrm.MyProfileController">
    <children>
       <BorderPane prefHeight="650.0" prefWidth="900.0">
          <left>
             <AnchorPane minHeight="-Infinity" prefHeight="601.0" prefWidth="260.0" style="-fx-background-color: #101010; -fx-background-radius: 13;" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="3.0" layoutY="5.0" prefHeight="54.0" prefWidth="257.0" text="Solana CRM">
+                  <Label layoutX="3.0" layoutY="5.0" prefHeight="54.0" prefWidth="275.0" text="Solana CRM">
                      <font>
                         <Font name="Georgia" size="45.0" />
                      </font>
@@ -51,7 +50,7 @@
                         <Insets left="3.0" />
                      </padding>
                   </Label>
-                  <Separator layoutX="9.0" layoutY="53.0" prefHeight="12.0" prefWidth="242.0" />
+                  <Separator layoutX="9.0" layoutY="53.0" prefHeight="12.0" prefWidth="255.0" />
                   <VBox layoutX="20.0" layoutY="73.0" prefHeight="329.0" prefWidth="224.0">
                      <children>
                         <Button mnemonicParsing="false" onAction="#clickNews" prefHeight="46.0" prefWidth="220.0" text="News">
@@ -76,13 +75,13 @@
                <content>
                   <AnchorPane minHeight="-Infinity" prefHeight="894.0" prefWidth="625.0">
                      <children>
-                        <ProgressIndicator fx:id="fakeLoad" layoutX="559.0" layoutY="14.0" onMouseClicked="#clickLoading" />
+                        <ProgressIndicator fx:id="fakeLoad" layoutX="550.0" onMouseClicked="#clickLoading" />
                         <FlowPane layoutX="48.0" layoutY="120.0" prefHeight="138.0" prefWidth="200.0">
                            <children>
-                              <Label prefHeight="33.0" prefWidth="66.0" text="First Name:" />
-                              <Label fx:id="firstName" prefHeight="33.0" prefWidth="125.0" />
-                              <Label prefHeight="29.0" prefWidth="68.0" text="Last Name:" />
-                              <Label fx:id="lastName" prefHeight="33.0" prefWidth="115.0" />
+                              <Label prefHeight="33.0" prefWidth="78.0" text="First Name:" />
+                              <Label fx:id="firstName" prefHeight="33.0" prefWidth="111.0" />
+                              <Label prefHeight="29.0" prefWidth="92.0" text="Last Name:" />
+                              <Label fx:id="lastName" prefHeight="33.0" prefWidth="98.0" />
                               <Label prefHeight="29.0" prefWidth="68.0" text="Login:" />
                               <Label fx:id="login" prefHeight="33.0" prefWidth="125.0" />
                               <Label prefHeight="29.0" prefWidth="68.0" text="Password:" />

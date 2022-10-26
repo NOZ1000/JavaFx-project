@@ -93,15 +93,6 @@ public class NewsController {
 
     @FXML
     void initialize() throws SQLException, ClassNotFoundException {
-//        DatabaseHandler dbHandler = new DatabaseHandler();
-//        ResultSet postResult = dbHandler.returnPosts(String.valueOf(5));
-//        while (postResult.next()) {
-//            System.out.println(postResult.getInt("idposts"));
-//            System.out.println(postResult.getString("title"));
-//            System.out.println(postResult.getString("content"));
-//            System.out.println(postResult.getDate("creating_date"));
-//        }
-         //System.out.println(postResult.getString("content"));
         printPosts();
     }
 
@@ -109,7 +100,7 @@ public class NewsController {
         DatabaseHandler dbHandler = new DatabaseHandler();
 
         try {
-            for (int i = 2; i < dbHandler.countOfPosts(); i++) {
+            for (int i = 1; i < dbHandler.countOfPosts() -1; i++) {
                 ResultSet postResult = dbHandler.returnPosts(String.valueOf(i));
                 postResult.next();
                 String buttontext = "Post id: " + String.valueOf(i) + " | Title: " + postResult.getString("title");
