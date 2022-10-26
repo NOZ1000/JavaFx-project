@@ -11,6 +11,7 @@ import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Objects;
 
@@ -31,6 +32,12 @@ public class PostsController extends NewsController {
     @FXML
     private Label successfullyAdded;
 
+    @FXML
+    private TextArea postContentView;
+
+    @FXML
+    private Label postTitleView;
+
 
 
     @FXML
@@ -50,13 +57,24 @@ public class PostsController extends NewsController {
         stage.show();
     }
 
-    public void fillPostContent() {
+    public void fillPostContent() throws SQLException, ClassNotFoundException {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+        ResultSet postResult = dbHandler.returnPosts(String.valueOf(Auth.id_post));
+        postResult.next();
 
+
+        postContentView.setText(postResult.getString("content"));
+        postTitleView.setText(postResult.getString("title"));
+        Auth.id_post = 0;
     }
 
     @FXML
-    void initialize() {
+    void initialize() throws SQLException, ClassNotFoundException {
+        if (Auth.id_post != 0 ) {
+            fillPostContent();
+        } else {
 
+        }
     }
 
 }

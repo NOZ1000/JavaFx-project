@@ -103,8 +103,26 @@ public class NewsController {
             for (int i = 1; i < dbHandler.countOfPosts() -1; i++) {
                 ResultSet postResult = dbHandler.returnPosts(String.valueOf(i));
                 postResult.next();
+
+                Button postbutton = new Button();
+                postbutton.setId(String.valueOf(i));
                 String buttontext = "Post id: " + String.valueOf(i) + " | Title: " + postResult.getString("title");
-                postBox.getChildren().add(new Button(buttontext));
+                postbutton.setText(buttontext);
+                int finalI = i;
+                postbutton.setOnAction(event -> {
+                    Auth.id_post = finalI;
+                    try {
+                        root  = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Postview.fxml")));
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                });
+                postBox.getChildren().add(postbutton);
+
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
